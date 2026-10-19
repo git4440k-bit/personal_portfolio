@@ -1,0 +1,175 @@
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  padding: 5rem 0 4rem;
+  margin-top: var(--nav-height);
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding: 6.5rem 0 5.5rem;
+  }
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Badge */
+.hero-badge-wrapper {
+  margin-bottom: 1.75rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 1rem;
+  background-color: rgba(11, 13, 17, 0.8);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  color: var(--text);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.status-pulse {
+  position: relative;
+  display: flex;
+  width: 8px;
+  height: 8px;
+}
+
+.status-ping {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--accent);
+  opacity: 0.75;
+  animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.status-point {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--accent);
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.badge-text {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.badge-separator {
+  color: var(--muted-dark);
+  font-size: 0.8rem;
+}
+
+.badge-location {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* Headings */
+.hero-name {
+  font-size: clamp(2.5rem, 6vw + 1rem, 4.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-size: clamp(1.85rem, 4.5vw + 0.5rem, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--muted);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+/* Yellow highlight for "Front-end" as required by FR-4 */
+.title-highlight {
+  color: var(--yellow);
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 0 24px var(--yellow-glow);
+}
+
+/* Tagline */
+.hero-tagline {
+  font-size: clamp(1.05rem, 1.8vw + 0.4rem, 1.35rem);
+  color: var(--text-secondary);
+  max-width: 620px;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+/* Buttons */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.hero-btn-primary {
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+}
+
+.hero-btn-outline {
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+}
+
+.btn-arrow-icon {
+  transition: transform var(--transition-fast);
+}
+
+.hero-btn-primary:hover .btn-arrow-icon {
+  transform: translate(2px, -2px);
+}
+
+/* Highlights footer / chip indicators */
+.hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  width: 100%;
+}
+
+.highlight-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full);
+}
+
+.pill-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: var(--radius-full);
+  background-color: var(--yellow);
+}

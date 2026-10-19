@@ -1,0 +1,44 @@
+:root {
+  /* Color palette as defined in PRD & Plan */
+  --bg: #08080c;
+  --surface: #0b0d11;
+  --surface-elevated: #11141a;
+  --surface-hover: #161b22;
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --surface-border-hover: rgba(93, 234, 213, 0.3);
+  
+  --glow: #0f1818;
+  --text: #edeff3;
+  --text-secondary: #c5c8d0;
+  --muted: #9a9ea8;
+  --muted-dark: #636875;
+  
+  --accent: #5dead5; /* Teal: primary buttons, links, accents */
+  --accent-hover: #44cfb8;
+  --accent-glow: rgba(93, 234, 213, 0.18);
+  --accent-subtle: rgba(93, 234, 213, 0.08);
+
+  --yellow: #facc15; /* Yellow: highlights, badges, key title words */
+  --yellow-hover: #ebd010;
+  --yellow-glow: rgba(250, 204, 21, 0.18);
+  --yellow-subtle: rgba(250, 204, 21, 0.08);
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  /* Layout & Spacing */
+  --container-max: 1080px;
+  --nav-height: 72px;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
