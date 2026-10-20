@@ -4,7 +4,7 @@
 | --- | --- |
 | **Product** | Personal portfolio website |
 | **Owner** | Kareem Mahmoud |
-| **Version** | 1.0 (first release) |
+| **Version** | 1.1 (first release, updated with light/dark mode, scroll animations and skill icons) |
 | **Status** | Draft, ready for build |
 | **Date** | 2026-10-19 |
 
@@ -27,7 +27,7 @@ A single-page personal portfolio that presents Kareem Mahmoud as a **Front-end D
 
 **Non-goals (version 1)** **[Decided]**
 - Blog, multiple pages, or a CMS
-- Heavy or animated effects (e.g. particle backgrounds)
+- Particle backgrounds and heavy animation libraries
 - CV download button
 - LinkedIn link (no account yet)
 - Multi-language support (English only)
@@ -52,7 +52,7 @@ A single-page personal portfolio that presents Kareem Mahmoud as a **Front-end D
 ## 5. Functional Requirements
 
 ### 5.1 Navigation
-- **FR-1** A fixed navbar with links to About, Skills, Projects, Contact, and the name on the left. **[Proposed]**
+- **FR-1** A fixed navbar with the name on the left, links to About, Skills, Projects, Contact, and a light/dark theme toggle. **[Proposed layout, Decided toggle]**
 - **FR-2** Clicking a link scrolls smoothly to the matching section.
 - **FR-3** On mobile the navbar collapses into a menu. **[Proposed]**
 
@@ -68,46 +68,82 @@ A single-page personal portfolio that presents Kareem Mahmoud as a **Front-end D
 > I'm a front-end developer and recent graduate with a background in information systems, computer networks, and business subjects like accounting and public economics. I enjoy turning ideas into fast, responsive interfaces with React, and I like building tools that make sense for real users and real businesses.
 
 ### 5.4 Skills **[Decided]**
-- **FR-9** Skills are shown as rows, in the style of the Experience section of the reference site: skill name on one side, a short note beside it.
+- **FR-9** Skills are grouped like the Experience section of the reference site, in a neat, well-organized layout: each group has a heading and a tidy list/grid of items.
 - **FR-10** Three groups:
   - Languages: HTML5, CSS3, JavaScript (ES6+)
   - Frameworks & Libraries: React
   - Tools & Practices: Git/GitHub, Responsive Design, Vite
-- **FR-11** No percentage bars or fake proficiency levels.
-- **FR-12** Skills come from `src/data/skills.js`.
+- **FR-11** Each item shows an **icon, the skill name and a one-line note**.
+- **FR-12** No percentage bars or fake proficiency levels.
+- **FR-13** Skills come from `src/data/skills.js`, including the icon reference.
+- **FR-14** Items reveal with a staggered scroll animation and have a subtle hover effect.
+- Icons **[Proposed]:** `react-icons`.
 
 ### 5.5 Projects **[Decided]**
-- **FR-13** Shows 3 project cards, added after the site is finished.
-- **FR-14** Each card has: title, short description (problem solved), technology tags, a **live demo** link, and a **GitHub** link.
-- **FR-15** Cards are rendered from `src/data/projects.js`; adding a project means adding one object.
-- **FR-16** If a project has no demo or no GitHub link, that button is hidden instead of broken.
+- **FR-15** Shows 3 project cards, added after the site is finished.
+- **FR-16** Each card has: title, short description (problem solved), technology tags, a **live demo** link, and a **GitHub** link.
+- **FR-17** Cards are rendered from `src/data/projects.js`; adding a project means adding one object.
+- **FR-18** If a project has no demo or no GitHub link, that button is hidden instead of broken.
 
 ### 5.6 Contact **[Decided]**
-- **FR-17** Shows an **Email** link (`mailto:`) and a **GitHub** link.
-- **FR-18** Links open in a new tab (except `mailto:`), with `rel="noopener noreferrer"`.
-- **FR-19** Adding LinkedIn later requires adding one entry in a config/data file, with no layout change.
+- **FR-19** Shows an **Email** link (`mailto:`) and a **GitHub** link.
+- **FR-20** Links open in a new tab (except `mailto:`), with `rel="noopener noreferrer"`.
+- **FR-21** Adding LinkedIn later requires adding one entry in a config/data file, with no layout change.
 
 ### 5.7 Footer **[Proposed]**
-- **FR-20** A small footer with the name and the year.
+- **FR-22** A small footer with the name and the year.
+
+### 5.8 Light / Dark Theme **[Decided]**
+- **FR-23** A toggle in the navbar switches between light and dark mode.
+- **FR-24** Light mode uses a **slightly yellowish (warm cream) white** background, not pure white.
+- **FR-25** The default follows the device setting; the visitor's choice is saved and restored on the next visit.
+- **FR-26** The correct theme is applied before the first paint (no flash of the wrong theme).
+- **FR-27** Text and controls meet contrast requirements in both themes.
+
+### 5.9 Animation **[Decided]**
+- **FR-28** Sections and their items fade/slide in as they enter the screen (scroll reveal), triggered once.
+- **FR-29** Items inside a group appear with a small stagger.
+- **FR-30** Subtle hover effects on skill items, cards and buttons; the active nav link is highlighted.
+- **FR-31** All motion is disabled when `prefers-reduced-motion` is on.
+- The reference site's exact animation could not be inspected from text; the standard scroll-reveal approach is used and adjusted after review.
 
 ## 6. Design Requirements **[Decided]**
 
 - **Reference:** https://portfolio-sweandrew.vercel.app/ for layout feel and colors, plus yellow.
-- **Theme:** dark, with a **static glow** (radial gradients) spread across the background of the whole site.
+- **Themes:** light and dark mode with a navbar toggle. Dark is the main look; light mode uses a slightly yellowish white.
+- **Background:** a **static glow** (radial gradients) spread across the whole site in both themes.
 - **Responsive:** mobile first; no horizontal scrolling at any width.
-- **No UI libraries;** all styling is hand-written CSS with CSS variables.
+- **No UI libraries;** all styling is hand-written CSS with CSS variables (an icon pack is allowed).
 
 ```css
-:root {
-  --bg:      #08080c;
-  --surface: #0b0d11;
-  --glow:    #0f1818;
-  --text:    #edeff3;
-  --muted:   #9a9ea8;
-  --accent:  #5dead5;  /* teal */
-  --yellow:  #facc15;
+/* Dark (main look) */
+:root,
+:root[data-theme="dark"] {
+  --bg:          #08080c;  /* page background */
+  --surface:     #0b0d11;  /* navbar, cards */
+  --glow:        #0f1818;  /* background glow tint */
+  --text:        #edeff3;  /* headings */
+  --muted:       #9a9ea8;  /* secondary text */
+  --accent:      #5dead5;  /* teal: primary buttons, links */
+  --on-accent:   #08080c;  /* text on teal buttons */
+  --yellow:      #facc15;  /* yellow: markers, underlines */
+  --yellow-text: #facc15;  /* yellow used as text */
+}
+
+/* Light (white tinted slightly yellow) */
+:root[data-theme="light"] {
+  --bg:          #fbf7e9;  /* warm, slightly yellowish white */
+  --surface:     #fffdf5;
+  --glow:        #f4edc9;
+  --text:        #1b1c22;
+  --muted:       #5c5f6a;
+  --accent:      #0f766e;  /* deeper teal so it stays readable on light */
+  --on-accent:   #ffffff;
+  --yellow:      #facc15;  /* used as highlight background / underline */
+  --yellow-text: #a16207;  /* darker yellow when used as text */
 }
 ```
+The light values are a starting point and should be checked with a contrast tool (target 4.5:1 for text).
 
 Color roles **[Proposed]:** teal for primary buttons and links; yellow for highlights (key title word, hover states, small markers).
 
@@ -120,7 +156,7 @@ Color roles **[Proposed]:** teal for primary buttons and links; yellow for highl
 | Responsive | Works from 320px up to large desktop |
 | SEO | Page `<title>`, meta description, Open Graph tags |
 | Browser support | Latest Chrome, Edge, Firefox, Safari |
-| Motion | Only subtle hover and smooth-scroll effects; respect `prefers-reduced-motion` |
+| Motion | Scroll-reveal, hover and smooth-scroll animations with CSS and `IntersectionObserver` (no animation library); respect `prefers-reduced-motion` |
 
 ## 8. Technical Requirements **[Decided]**
 
@@ -129,13 +165,15 @@ Color roles **[Proposed]:** teal for primary buttons and links; yellow for highl
 - **Styling:** plain CSS (or CSS Modules)
 - **Hosting:** Vercel free tier, connected to a GitHub repository (auto-deploy on `git push`)
 - **Language:** English only
+- **Icons:** `react-icons` **[Proposed]**
 
 ### Suggested structure
 
 ```
 src/
-├─ components/ (Navbar, Hero, About, Skills, Projects, Contact, Footer)
+├─ components/ (Navbar, ThemeToggle, Hero, About, Skills, Projects, Contact, Footer)
 ├─ data/       (projects.js, skills.js)
+├─ hooks/      (useTheme.js, useReveal.js)
 ├─ styles/     (variables.css, global.css)
 ├─ App.jsx
 └─ main.jsx
@@ -148,7 +186,7 @@ src/
 { title, description, tech: [], demo, github }
 
 // skills.js
-{ group, items: [{ name, note }] }
+{ group, items: [{ name, note, icon }] }
 ```
 
 ## 9. Acceptance Criteria
@@ -160,6 +198,10 @@ src/
 5. Missing demo/GitHub links never produce a broken button.
 6. The site is live on a public Vercel URL and updates after a `git push`.
 7. Lighthouse scores meet the targets in section 7.
+8. The theme toggle switches between light and dark, the choice is remembered, and there is no flash of the wrong theme on reload.
+9. In light mode the background is a warm, slightly yellowish white, and all text stays readable.
+10. Sections and skill items animate in on scroll, and no animation runs when reduced motion is enabled.
+11. Every skill shows an icon, a name and a note, neatly aligned on phone and desktop.
 
 ## 10. Success Metrics **[Proposed]**
 
@@ -173,8 +215,8 @@ src/
 | # | Milestone | Output |
 | --- | --- | --- |
 | 1 | Project setup | Vite + React project, global CSS variables, folder structure |
-| 2 | Layout & sections | Navbar, Hero, About, Skills, Contact |
-| 3 | Polish | Responsive pass, glow background, hover states, accessibility check |
+| 2 | Layout & sections | Navbar with theme toggle, Hero, About, Skills (with icons), Contact |
+| 3 | Polish | Light/dark palettes, scroll animations, responsive pass, glow background, hover states, accessibility check |
 | 4 | Deploy | GitHub repo + Vercel, live URL |
 | 5 | Projects | Add the 3 projects to `projects.js` and redeploy |
 
@@ -187,6 +229,8 @@ src/
 | No CV yet | Some recruiters expect one | Add the button when an English CV is ready |
 | Skill notes not written | Skills rows look bare | Kareem writes one honest line per skill before launch |
 | Colors are estimated from a screenshot | Slight difference from the reference | Adjust the CSS variables once after review |
+| The reference site's animation could not be inspected | Result may differ from what Kareem saw | Build standard scroll-reveal, then adjust after Kareem reviews it |
+| Light mode colors are a first guess | Yellow or teal may be hard to read on cream | Check contrast and tune `--yellow-text` and `--accent` for light mode |
 
 ## 13. Open Questions
 
@@ -196,3 +240,5 @@ src/
 4. Whether to buy a custom domain later.
 5. Exact wording of the Hero tagline and badge, if Kareem wants changes.
 6. Which of the 3 projects use React, and their demo/GitHub links (needed for milestone 5).
+7. What exactly the reference site's Experience animation does (fade, slide, line drawing, something else), so it can be matched.
+8. Whether the light-mode cream shade feels right (adjustable through `--bg` and `--glow`).

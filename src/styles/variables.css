@@ -1,43 +1,102 @@
-:root {
-  /* Color palette as defined in PRD & Plan */
-  --bg: #08080c;
-  --surface: #0b0d11;
-  --surface-elevated: #11141a;
-  --surface-hover: #161b22;
+/* ==========================================================================
+   Design Tokens & Themes — Kareem Mahmoud Personal Portfolio
+   Version 1.1: Supports Dark (default) and Light (warm cream white) themes
+   ========================================================================== */
+
+/* Dark Theme (Main / Default look) */
+:root,
+:root[data-theme="dark"] {
+  --bg: #08080c;                   /* Page background */
+  --surface: #0b0d11;              /* Cards, navbar, containers */
+  --surface-elevated: #11141a;     /* Elevated elements */
+  --surface-hover: #161b22;        /* Hover state for cards/buttons */
   --surface-border: rgba(255, 255, 255, 0.08);
   --surface-border-hover: rgba(93, 234, 213, 0.3);
-  
-  --glow: #0f1818;
-  --text: #edeff3;
-  --text-secondary: #c5c8d0;
-  --muted: #9a9ea8;
-  --muted-dark: #636875;
-  
-  --accent: #5dead5; /* Teal: primary buttons, links, accents */
+  --divider: rgba(255, 255, 255, 0.05);
+
+  --glow: #0f1818;                 /* Background glow tint */
+  --text: #edeff3;                 /* Headings & primary text */
+  --text-secondary: #c5c8d0;       /* Secondary body text */
+  --muted: #9a9ea8;                /* Muted text & descriptions */
+  --muted-dark: #636875;           /* Footers, subtle metadata */
+
+  --accent: #5dead5;               /* Teal: primary buttons, links */
   --accent-hover: #44cfb8;
+  --on-accent: #08080c;            /* Dark text on teal buttons */
   --accent-glow: rgba(93, 234, 213, 0.18);
   --accent-subtle: rgba(93, 234, 213, 0.08);
 
-  --yellow: #facc15; /* Yellow: highlights, badges, key title words */
+  --yellow: #facc15;               /* Yellow: markers, underlines, badges */
+  --yellow-text: #facc15;          /* Yellow used as text */
   --yellow-hover: #ebd010;
   --yellow-glow: rgba(250, 204, 21, 0.18);
   --yellow-subtle: rgba(250, 204, 21, 0.08);
 
-  /* Typography */
+  --nav-bg: rgba(8, 8, 12, 0.75);
+  --nav-bg-scrolled: rgba(11, 13, 17, 0.94);
+  --card-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  --badge-bg: rgba(11, 13, 17, 0.85);
+
+  /* Ambient radial glows for background */
+  --glow-1: rgba(93, 234, 213, 0.09);
+  --glow-2: rgba(15, 24, 24, 0.85);
+  --glow-3: rgba(250, 204, 21, 0.035);
+  --glow-4: rgba(93, 234, 213, 0.05);
+}
+
+/* Light Theme (warm, slightly yellowish cream white) */
+:root[data-theme="light"] {
+  --bg: #fbf7e9;                   /* Warm, slightly yellowish white */
+  --surface: #fffdf5;              /* Cream white for cards & navbar */
+  --surface-elevated: #ffffff;     /* Pure elevated surface */
+  --surface-hover: #f5eed3;        /* Subtle warm hover */
+  --surface-border: rgba(27, 28, 34, 0.09);
+  --surface-border-hover: rgba(15, 118, 110, 0.4);
+  --divider: rgba(27, 28, 34, 0.06);
+
+  --glow: #f4edc9;                 /* Soft warm tint for glow */
+  --text: #1b1c22;                 /* Deep charcoal text (high contrast) */
+  --text-secondary: #3b3f4d;       /* Crisp secondary text */
+  --muted: #5c5f6a;                /* Readable muted text (≥ 4.5:1) */
+  --muted-dark: #838796;           /* Subtle metadata */
+
+  --accent: #0f766e;               /* Deeper teal to ensure high contrast on light */
+  --accent-hover: #0d655e;
+  --on-accent: #ffffff;            /* White text on dark teal button */
+  --accent-glow: rgba(15, 118, 110, 0.2);
+  --accent-subtle: rgba(15, 118, 110, 0.08);
+
+  --yellow: #facc15;               /* Highlight background / markers */
+  --yellow-text: #a16207;          /* Darker yellow/amber for accessible text */
+  --yellow-hover: #d97706;
+  --yellow-glow: rgba(161, 98, 7, 0.2);
+  --yellow-subtle: rgba(250, 204, 21, 0.22);
+
+  --nav-bg: rgba(251, 247, 233, 0.85);
+  --nav-bg-scrolled: rgba(255, 253, 245, 0.96);
+  --card-shadow: 0 8px 24px rgba(60, 50, 30, 0.08);
+  --badge-bg: rgba(255, 253, 245, 0.9);
+
+  /* Ambient radial glows for light mode */
+  --glow-1: rgba(15, 118, 110, 0.07);
+  --glow-2: rgba(244, 237, 201, 0.95);
+  --glow-3: rgba(250, 204, 21, 0.08);
+  --glow-4: rgba(15, 118, 110, 0.04);
+}
+
+/* Common variables (Layout, Radii, Fonts, Transitions) */
+:root {
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-  /* Layout & Spacing */
   --container-max: 1080px;
   --nav-height: 72px;
 
-  /* Radii */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-full: 9999px;
 
-  /* Transitions */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);

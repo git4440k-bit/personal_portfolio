@@ -1,6 +1,6 @@
 .about-section {
   position: relative;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--divider);
 }
 
 .eyebrow-line {
@@ -21,7 +21,8 @@
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-lg);
   padding: 2rem;
-  transition: border-color var(--transition-normal);
+  box-shadow: var(--card-shadow);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 @media (min-width: 768px) {
@@ -31,7 +32,7 @@
 }
 
 .about-bio-card:hover {
-  border-color: rgba(93, 234, 213, 0.25);
+  border-color: var(--surface-border-hover);
 }
 
 .about-lead {
@@ -52,7 +53,7 @@
   grid-template-columns: 1fr;
   gap: 1.5rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--divider);
 }
 
 @media (min-width: 768px) {
@@ -75,9 +76,17 @@
   width: 42px;
   height: 42px;
   border-radius: var(--radius-md);
-  background-color: rgba(93, 234, 213, 0.08);
+  background-color: var(--accent-subtle);
   color: var(--accent);
-  border: 1px solid rgba(93, 234, 213, 0.15);
+  border: 1px solid var(--accent-glow);
+  transition: all var(--transition-fast);
+}
+
+.focus-point-item:hover .point-icon-wrapper {
+  background-color: var(--yellow-subtle);
+  border-color: var(--yellow);
+  color: var(--yellow-text);
+  transform: translateY(-2px);
 }
 
 .point-title {

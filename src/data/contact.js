@@ -6,35 +6,24 @@
 export const contactConfig = {
   heading: "Get in touch",
   subheading: "I'm currently open to full-time front-end roles and freelance opportunities. Feel free to reach out directly.",
-  email: "kareem.mahmoud.dev@gmail.com",
+  email: "git4440k@gmail.com",
   location: "Egypt",
   channels: [
     {
       id: "email",
       name: "Email",
-      value: "kareem.mahmoud.dev@gmail.com",
-      url: "mailto:kareem.mahmoud.dev@gmail.com",
+      value: "git4440k@gmail.com",
+      url: "mailto:git4440k@gmail.com",
       type: "email",
       description: "Direct email inquiry"
     },
     {
       id: "github",
       name: "GitHub",
-      value: "github.com/kareemmahmoud",
-      url: "https://github.com/kareemmahmoud",
+      value: "github.com/git4440k-bit",
+      url: "https://github.com/git4440k-bit",
       type: "external",
       description: "Code repositories and contributions"
     }
-    /*
-    To add LinkedIn in the future, simply uncomment or add:
-    {
-      id: "linkedin",
-      name: "LinkedIn",
-      value: "linkedin.com/in/kareemmahmoud",
-      url: "https://www.linkedin.com/in/kareemmahmoud",
-      type: "external",
-      description: "Professional profile and networking"
-    }
-    */
   ]
 };

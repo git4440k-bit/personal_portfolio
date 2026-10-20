@@ -1,7 +1,10 @@
 import React from 'react';
+import { useReveal } from '../hooks/useReveal';
 import '../styles/Hero.css';
 
 export default function Hero() {
+  const heroRef = useReveal({ threshold: 0.1 });
+
   const handleScrollTo = (e, targetId) => {
     e.preventDefault();
     const target = document.querySelector(targetId);
@@ -12,11 +15,11 @@ export default function Hero() {
   };
 
   return (
-    <section id="top" className="hero-section" aria-label="Introduction">
+    <section id="top" ref={heroRef} className="hero-section" aria-label="Introduction">
       <div className="container hero-container">
         
         {/* Availability Badge */}
-        <div className="hero-badge-wrapper">
+        <div className="hero-badge-wrapper reveal-item">
           <div className="status-badge" role="status">
             <span className="status-pulse">
               <span className="status-ping"></span>
@@ -29,19 +32,19 @@ export default function Hero() {
         </div>
 
         {/* Name and Title */}
-        <h1 className="hero-name">Kareem Mahmoud</h1>
+        <h1 className="hero-name reveal-item">Kareem Mahmoud</h1>
         
-        <h2 className="hero-title">
+        <h2 className="hero-title reveal-item">
           <span className="title-highlight">Front-end</span> Developer
         </h2>
 
         {/* Tagline */}
-        <p className="hero-tagline">
+        <p className="hero-tagline reveal-item">
           I build clean, responsive web interfaces with React.
         </p>
 
         {/* Action Buttons */}
-        <div className="hero-actions">
+        <div className="hero-actions reveal-item">
           <a
             href="#projects"
             className="btn btn-primary hero-btn-primary"
@@ -75,15 +78,15 @@ export default function Hero() {
         </div>
 
         {/* Subtle quick stats / tech chips */}
-        <div className="hero-highlights">
+        <div className="hero-highlights reveal-item">
           <div className="highlight-pill">
-            <span className="pill-dot"></span> React & Modern JS
+            <span className="pill-dot"></span> React &amp; Modern JS
           </div>
           <div className="highlight-pill">
-            <span className="pill-dot"></span> Responsive & Mobile-First
+            <span className="pill-dot"></span> Responsive &amp; Mobile-First
           </div>
           <div className="highlight-pill">
-            <span className="pill-dot"></span> Performance & Clean Code
+            <span className="pill-dot"></span> Performance &amp; Clean Code
           </div>
         </div>
 

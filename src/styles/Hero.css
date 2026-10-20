@@ -29,12 +29,14 @@
   align-items: center;
   gap: 0.65rem;
   padding: 0.45rem 1rem;
-  background-color: rgba(11, 13, 17, 0.8);
+  background-color: var(--badge-bg);
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-full);
   font-size: 0.85rem;
   color: var(--text);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .status-pulse {
@@ -104,7 +106,7 @@
 
 /* Yellow highlight for "Front-end" as required by FR-4 */
 .title-highlight {
-  color: var(--yellow);
+  color: var(--yellow-text);
   position: relative;
   display: inline-block;
   text-shadow: 0 0 24px var(--yellow-glow);
@@ -151,7 +153,7 @@
   flex-wrap: wrap;
   gap: 0.75rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--divider);
   width: 100%;
 }
 
@@ -161,15 +163,16 @@
   gap: 0.5rem;
   font-size: 0.82rem;
   color: var(--muted);
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
   padding: 0.35rem 0.8rem;
   border-radius: var(--radius-full);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
 .pill-dot {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: var(--radius-full);
   background-color: var(--yellow);
 }

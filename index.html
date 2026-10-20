@@ -5,12 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kareem Mahmoud — Front-end Developer</title>
     
+    <!-- Script to set theme immediately before first paint (avoids theme flash) -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('portfolio-theme');
+          var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
     <!-- SEO & Metadata -->
     <meta name="description" content="Kareem Mahmoud is a Front-end Developer who builds clean, fast, responsive web interfaces with React, modern JavaScript, and CSS." />
     <meta name="keywords" content="Kareem Mahmoud, Front-end Developer, React, JavaScript, Web Developer, Portfolio, Egypt" />
     <meta name="author" content="Kareem Mahmoud" />
-    <meta name="theme-color" content="#08080c" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="dark light" />
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website" />

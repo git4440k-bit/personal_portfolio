@@ -1,6 +1,6 @@
 .contact-section {
   position: relative;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--divider);
 }
 
 .contact-card-wrapper {
@@ -15,7 +15,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
-  transition: border-color var(--transition-normal);
+  box-shadow: var(--card-shadow);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 @media (min-width: 900px) {
@@ -27,7 +28,7 @@
 }
 
 .contact-main-card:hover {
-  border-color: rgba(93, 234, 213, 0.25);
+  border-color: var(--surface-border-hover);
 }
 
 .contact-text-block {
@@ -38,7 +39,7 @@
 .contact-tag {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--yellow);
+  color: var(--yellow-text);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.75rem;
@@ -87,7 +88,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 1.5rem;
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: var(--surface);
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-md);
   transition: all var(--transition-normal);
@@ -124,6 +125,7 @@
   font-weight: 500;
   color: var(--accent);
   background-color: var(--accent-subtle);
+  border: 1px solid var(--accent-glow);
   padding: 0.1rem 0.45rem;
   border-radius: var(--radius-sm);
 }
@@ -147,7 +149,7 @@
   width: 34px;
   height: 34px;
   border-radius: var(--radius-sm);
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: var(--surface-hover);
   color: var(--muted);
   transition: all var(--transition-fast);
   flex-shrink: 0;
@@ -155,6 +157,6 @@
 
 .channel-card:hover .channel-arrow {
   background-color: var(--accent);
-  color: #08080c;
+  color: var(--on-accent);
   transform: translate(2px, -2px);
 }

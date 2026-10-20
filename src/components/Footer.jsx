@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/Footer.css';
 
-export default function Footer() {
-  const currentYear = new Date().getFullYear();
+const CURRENT_YEAR = new Date().getFullYear();
 
+export default function Footer() {
   const handleScrollToTop = (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="container footer-container">
         <div className="footer-left">
           <p className="footer-copyright">
-            &copy; {currentYear} Kareem Mahmoud. All rights reserved.
+            &copy; {CURRENT_YEAR} Kareem Mahmoud. All rights reserved.
           </p>
           <p className="footer-built">
             Built with React &amp; Vite • Plain CSS

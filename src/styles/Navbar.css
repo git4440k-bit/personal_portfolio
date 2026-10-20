@@ -5,7 +5,7 @@
   right: 0;
   height: var(--nav-height);
   z-index: 100;
-  background-color: rgba(8, 8, 12, 0.75);
+  background-color: var(--nav-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
@@ -13,9 +13,9 @@
 }
 
 .navbar-header.scrolled {
-  background-color: rgba(11, 13, 17, 0.92);
+  background-color: var(--nav-bg-scrolled);
   border-bottom-color: var(--surface-border);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .navbar-container {
@@ -57,7 +57,7 @@
 .navbar-links-desktop {
   display: none;
   align-items: center;
-  gap: 1.75rem;
+  gap: 1.5rem;
 }
 
 @media (min-width: 768px) {
@@ -75,7 +75,8 @@
   transition: color var(--transition-fast);
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
   color: var(--text);
 }
 
@@ -90,13 +91,27 @@
   transition: width var(--transition-normal);
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
 }
 
 .nav-cta-btn {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
+}
+
+/* Mobile Actions */
+.navbar-mobile-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .navbar-mobile-actions {
+    display: none;
+  }
 }
 
 /* Mobile Toggle Hamburger Button */
@@ -108,17 +123,17 @@
   width: 40px;
   height: 40px;
   padding: 8px;
-  background: transparent;
+  background: var(--surface);
   border: 1px solid var(--surface-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   cursor: pointer;
   z-index: 105;
+  transition: all var(--transition-fast);
 }
 
-@media (min-width: 768px) {
-  .navbar-toggle {
-    display: none;
-  }
+.navbar-toggle:hover {
+  background-color: var(--surface-hover);
+  border-color: var(--accent);
 }
 
 .toggle-bar {
@@ -148,7 +163,7 @@
   top: var(--nav-height);
   left: 0;
   right: 0;
-  background-color: rgba(11, 13, 17, 0.98);
+  background-color: var(--nav-bg-scrolled);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--surface-border);
@@ -156,7 +171,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height var(--transition-slow), padding var(--transition-fast);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 @media (min-width: 768px) {
@@ -182,11 +197,12 @@
   font-weight: 500;
   color: var(--muted);
   padding: 0.6rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--divider);
   transition: color var(--transition-fast);
 }
 
-.mobile-nav-link:hover {
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
   color: var(--accent);
 }
 

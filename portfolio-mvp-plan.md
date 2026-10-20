@@ -17,11 +17,12 @@ Success test: Kareem can put the link in a job application today.
 
 | Priority | Feature | In MVP? |
 | --- | --- | --- |
-| Must | Vite + React project, CSS variables, dark theme with static glow | Yes |
-| Must | Navbar with smooth scroll (mobile menu) | Yes |
+| Must | Vite + React project, CSS variables, light and dark themes (warm cream white in light mode) with static glow | Yes |
+| Must | Navbar with smooth scroll, mobile menu and light/dark toggle | Yes |
 | Must | Hero (name, title, tagline, 2 buttons, "Open to work" badge) | Yes |
 | Must | About (approved text) | Yes |
-| Must | Skills (3 groups, rows style, one-line note per skill) | Yes |
+| Must | Skills (3 groups, neat layout, an icon + name + one-line note per skill) | Yes |
+| Must | Scroll-reveal animations like the reference site (reduced-motion safe) | Yes |
 | Must | Contact (Email + GitHub) | Yes |
 | Must | Responsive down to 320px | Yes |
 | Must | Deploy on Vercel from GitHub | Yes |
@@ -34,25 +35,27 @@ Success test: Kareem can put the link in a job application today.
 
 Rough effort estimates, assuming Kareem is comfortable with React basics. They are guesses, not commitments.
 
-### Step 1 — Setup (about 1 hour)
+### Step 1 — Setup (about 1 to 2 hours)
 - [ ] `npm create vite@latest portfolio -- --template react`
 - [ ] Create folders: `components/`, `data/`, `styles/`
-- [ ] Add `variables.css` with the color palette and `global.css` (reset, fonts, background glow)
+- [ ] Add `variables.css` with the dark and light palettes and `global.css` (reset, fonts, background glow)
+- [ ] Add the small theme script in `index.html` (applies `data-theme` before first paint)
 - [ ] Create a GitHub repo and push the first commit
 
-**Done when:** `npm run dev` shows a dark page with the glow background.
+**Done when:** `npm run dev` shows the glow background, and changing `data-theme` in the browser switches dark and light.
 
-### Step 2 — Navbar + Hero (about 2 to 3 hours)
+### Step 2 — Navbar + Hero (about 3 to 4 hours)
 - [ ] Navbar with section links and smooth scroll
 - [ ] Mobile menu (open/close)
+- [ ] Theme toggle (`useTheme` hook, saved in `localStorage`, defaults to the device setting)
 - [ ] Hero: name, title ("Front-end" in yellow), tagline, buttons, badge
 
 **Done when:** the top of the page looks right on phone and desktop, and the buttons scroll to the right sections.
 
-### Step 3 — About + Skills (about 2 to 3 hours)
+### Step 3 — About + Skills (about 3 to 4 hours)
 - [ ] About with the approved text
-- [ ] `skills.js` with the 3 groups
-- [ ] Skills rows in the style of the reference site's Experience section
+- [ ] `skills.js` with the 3 groups and an icon for each skill (`react-icons`)
+- [ ] Skills layout in the style of the reference site's Experience section: group heading, then neat items with icon, name and note
 
 **Done when:** Skills render from the data file and every skill has a real one-line note.
 
@@ -68,17 +71,25 @@ Rough effort estimates, assuming Kareem is comfortable with React basics. They a
 
 **Done when:** adding one object to the array shows a new card.
 
-### Step 6 — Polish & check (about 2 hours)
-- [ ] Test at 320px, 768px and 1280px, with no horizontal scroll
+### Step 6 — Animations (about 2 to 3 hours)
+- [ ] `useReveal` hook with `IntersectionObserver` (fade/slide up when a section or item enters the screen)
+- [ ] Staggered reveal for skill items and project cards
+- [ ] Hover effects (lift, glow) on skill items, cards and buttons; active nav link while scrolling
+- [ ] Turn off all motion when `prefers-reduced-motion` is enabled
+
+**Done when:** scrolling the page animates sections in smoothly, and nothing animates with reduced motion on.
+
+### Step 7 — Polish & check (about 2 hours)
+- [ ] Test at 320px, 768px and 1280px, with no horizontal scroll, in both light and dark themes
 - [ ] Hover and focus states, text contrast
 - [ ] Page `<title>`, meta description, Open Graph tags
 - [ ] Run Lighthouse (target: 90+ Performance and Accessibility)
 
-### Step 7 — Deploy (about 30 minutes)
+### Step 8 — Deploy (about 30 minutes)
 - [ ] Import the repo into Vercel and deploy
 - [ ] Open the live link on a real phone
 
-**Total estimate: roughly 10 to 14 hours of work.**
+**Total estimate: roughly 14 to 20 hours of work.**
 
 ## 4. What Kareem Needs To Prepare Before Step 3
 
@@ -100,12 +111,14 @@ Recommendation: **Option A**, and add the first project as soon as possible (thi
 ## 6. Definition of Done (MVP)
 
 1. The site is live on a public Vercel URL.
-2. Navbar, Hero, About, Skills and Contact show the agreed content and palette.
-3. No layout break or horizontal scroll at 320px, 768px and 1280px.
-4. Email and GitHub links work.
-5. Every skill has a real note, and no placeholder text is left.
-6. Lighthouse Performance and Accessibility are 90 or above on mobile.
-7. A `git push` updates the live site.
+2. Navbar, Hero, About, Skills and Contact show the agreed content and palettes (dark, and light with a warm yellowish white).
+3. No layout break or horizontal scroll at 320px, 768px and 1280px, in both themes.
+4. The theme toggle works, is remembered, and does not flash on reload.
+5. Sections and skill items animate in on scroll, and every skill has an icon.
+6. Email and GitHub links work.
+7. Every skill has a real note, and no placeholder text is left.
+8. Lighthouse Performance and Accessibility are 90 or above on mobile.
+9. A `git push` updates the live site.
 
 ## 7. After the MVP (in order)
 
@@ -121,8 +134,9 @@ Recommendation: **Option A**, and add the first project as soon as possible (thi
 
 Cut in this order and still ship:
 1. Footer
-2. Open Graph tags
-3. Mobile menu animation (keep a simple one)
-4. Projects structure (use Option A and add it later)
+2. Staggered and hover animation extras (keep a simple fade-in)
+3. Open Graph tags
+4. Mobile menu animation (keep a simple one)
+5. Projects structure (use Option A and add it later)
 
-Never cut: responsiveness, readable contrast, working contact links, deployment.
+Never cut: responsiveness, readable contrast in both themes, the light/dark toggle, working contact links, deployment.

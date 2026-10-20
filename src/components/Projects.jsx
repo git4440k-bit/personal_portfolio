@@ -1,12 +1,20 @@
 import React from 'react';
 import { projects } from '../data/projects';
+import { useReveal } from '../hooks/useReveal';
 import '../styles/Projects.css';
 
 export default function Projects() {
+  const sectionRef = useReveal({ threshold: 0.1 });
+
   return (
-    <section id="projects" className="section projects-section" aria-labelledby="projects-heading">
+    <section 
+      id="projects" 
+      ref={sectionRef} 
+      className="section projects-section" 
+      aria-labelledby="projects-heading"
+    >
       <div className="container">
-        <div className="section-header">
+        <div className="section-header reveal-item">
           <span className="section-eyebrow">
             <span className="eyebrow-line"></span>
             Featured Work
@@ -26,7 +34,7 @@ export default function Projects() {
               const hasGithub = Boolean(project.github && project.github.trim());
 
               return (
-                <article key={project.title || idx} className="project-card">
+                <article key={project.title || idx} className="project-card reveal-item">
                   <div className="project-card-header">
                     <span className="project-index">0{idx + 1}</span>
                     <div className="project-status-dot"></div>
@@ -47,7 +55,7 @@ export default function Projects() {
                   )}
 
                   {/* Actions: Demo & GitHub links.
-                      FR-16: If a project has no demo or no GitHub link, that button is hidden instead of broken. */}
+                      FR-18: If a project has no demo or no GitHub link, that button is hidden instead of broken. */}
                   {(hasDemo || hasGithub) && (
                     <div className="project-links">
                       {hasDemo && (
@@ -86,7 +94,7 @@ export default function Projects() {
               );
             })
           ) : (
-            <div className="projects-empty-state">
+            <div className="projects-empty-state reveal-item">
               <p>Projects are currently being updated. Check back soon!</p>
             </div>
           )}

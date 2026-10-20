@@ -6,11 +6,14 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { useTheme } from './hooks/useTheme';
 
 export default function App() {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <>
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main id="main-content">
         <Hero />
         <About />

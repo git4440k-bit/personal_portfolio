@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { contactConfig } from '../data/contact';
+import { useReveal } from '../hooks/useReveal';
 import '../styles/Contact.css';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const sectionRef = useReveal({ threshold: 0.1 });
 
   const handleCopyEmail = (email) => {
     navigator.clipboard.writeText(email).then(() => {
@@ -15,9 +17,14 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section contact-section" aria-labelledby="contact-heading">
+    <section 
+      id="contact" 
+      ref={sectionRef} 
+      className="section contact-section" 
+      aria-labelledby="contact-heading"
+    >
       <div className="container">
-        <div className="section-header">
+        <div className="section-header reveal-item">
           <span className="section-eyebrow">
             <span className="eyebrow-line"></span>
             Reach Out
@@ -31,7 +38,7 @@ export default function Contact() {
         </div>
 
         <div className="contact-card-wrapper">
-          <div className="contact-main-card">
+          <div className="contact-main-card reveal-item">
             <div className="contact-text-block">
               <span className="contact-tag">Direct Communication</span>
               <h3 className="contact-prompt">Let's build something exceptional together.</h3>
@@ -61,7 +68,7 @@ export default function Contact() {
                 >
                   {copied ? (
                     <>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="highlight-yellow">
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
                       <span className="highlight-yellow">Copied!</span>
@@ -79,7 +86,7 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Configured Channels List (FR-17, FR-18, FR-19) */}
+            {/* Configured Channels List (FR-19, FR-20, FR-21) */}
             <div className="contact-channels-list">
               {contactConfig.channels.map((channel) => {
                 const isMail = channel.type === 'email' || channel.url.startsWith('mailto:');
@@ -87,7 +94,7 @@ export default function Contact() {
                   <a
                     key={channel.id}
                     href={channel.url}
-                    className="channel-card"
+                    className="channel-card reveal-item"
                     target={isMail ? undefined : '_blank'}
                     rel={isMail ? undefined : 'noopener noreferrer'}
                   >
