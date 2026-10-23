@@ -9,11 +9,11 @@
     <script>
       (function() {
         try {
-          var saved = localStorage.getItem('portfolio-theme');
-          var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          var saved = localStorage.getItem('portfolio-theme-v2');
+          var theme = saved || 'light';
           document.documentElement.setAttribute('data-theme', theme);
         } catch (e) {
-          document.documentElement.setAttribute('data-theme', 'dark');
+          document.documentElement.setAttribute('data-theme', 'light');
         }
       })();
     </script>

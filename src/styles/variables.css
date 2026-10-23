@@ -1,10 +1,50 @@
 /* ==========================================================================
    Design Tokens & Themes — Kareem Mahmoud Personal Portfolio
-   Version 1.1: Supports Dark (default) and Light (warm cream white) themes
+   Version 1.2: Supports Light (#f9f9f9) and Dark (#08080c) themes
    ========================================================================== */
 
-/* Dark Theme (Main / Default look) */
+/* Light Theme (Default / #f9f9f9 background) */
 :root,
+:root[data-theme="light"] {
+  --bg: #f9f9f9;                   /* Page background */
+  --surface: #ffffff;              /* Cards, navbar, containers */
+  --surface-elevated: #ffffff;     /* Pure elevated surface */
+  --surface-hover: #f1f3f5;        /* Subtle clean hover */
+  --surface-border: rgba(27, 28, 34, 0.08);
+  --surface-border-hover: rgba(15, 118, 110, 0.35);
+  --divider: rgba(27, 28, 34, 0.06);
+
+  --glow: #eef2f6;                 /* Soft tint for ambient glow */
+  --text: #1b1c22;                 /* Deep charcoal text (high contrast) */
+  --text-secondary: #3b3f4d;       /* Crisp secondary text */
+  --muted: #5c5f6a;                /* Readable muted text (≥ 4.5:1) */
+  --muted-dark: #838796;           /* Subtle metadata */
+
+  --accent: #0f766e;               /* Deeper teal to ensure high contrast on light */
+  --accent-hover: #0d655e;
+  --on-accent: #ffffff;            /* White text on dark teal button */
+  --accent-glow: rgba(15, 118, 110, 0.2);
+  --accent-subtle: rgba(15, 118, 110, 0.08);
+
+  --yellow: #facc15;               /* Highlight background / markers */
+  --yellow-text: #a16207;          /* Darker yellow/amber for accessible text */
+  --yellow-hover: #d97706;
+  --yellow-glow: rgba(161, 98, 7, 0.2);
+  --yellow-subtle: rgba(250, 204, 21, 0.22);
+
+  --nav-bg: rgba(249, 249, 249, 0.85);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.96);
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --badge-bg: rgba(255, 255, 255, 0.9);
+
+  /* Ambient radial glows for light mode */
+  --glow-1: rgba(15, 118, 110, 0.06);
+  --glow-2: rgba(235, 238, 242, 0.75);
+  --glow-3: rgba(250, 204, 21, 0.05);
+  --glow-4: rgba(15, 118, 110, 0.03);
+}
+
+/* Dark Theme */
 :root[data-theme="dark"] {
   --bg: #08080c;                   /* Page background */
   --surface: #0b0d11;              /* Cards, navbar, containers */
@@ -42,46 +82,6 @@
   --glow-2: rgba(15, 24, 24, 0.85);
   --glow-3: rgba(250, 204, 21, 0.035);
   --glow-4: rgba(93, 234, 213, 0.05);
-}
-
-/* Light Theme (warm, slightly yellowish cream white) */
-:root[data-theme="light"] {
-  --bg: #fbf7e9;                   /* Warm, slightly yellowish white */
-  --surface: #fffdf5;              /* Cream white for cards & navbar */
-  --surface-elevated: #ffffff;     /* Pure elevated surface */
-  --surface-hover: #f5eed3;        /* Subtle warm hover */
-  --surface-border: rgba(27, 28, 34, 0.09);
-  --surface-border-hover: rgba(15, 118, 110, 0.4);
-  --divider: rgba(27, 28, 34, 0.06);
-
-  --glow: #f4edc9;                 /* Soft warm tint for glow */
-  --text: #1b1c22;                 /* Deep charcoal text (high contrast) */
-  --text-secondary: #3b3f4d;       /* Crisp secondary text */
-  --muted: #5c5f6a;                /* Readable muted text (≥ 4.5:1) */
-  --muted-dark: #838796;           /* Subtle metadata */
-
-  --accent: #0f766e;               /* Deeper teal to ensure high contrast on light */
-  --accent-hover: #0d655e;
-  --on-accent: #ffffff;            /* White text on dark teal button */
-  --accent-glow: rgba(15, 118, 110, 0.2);
-  --accent-subtle: rgba(15, 118, 110, 0.08);
-
-  --yellow: #facc15;               /* Highlight background / markers */
-  --yellow-text: #a16207;          /* Darker yellow/amber for accessible text */
-  --yellow-hover: #d97706;
-  --yellow-glow: rgba(161, 98, 7, 0.2);
-  --yellow-subtle: rgba(250, 204, 21, 0.22);
-
-  --nav-bg: rgba(251, 247, 233, 0.85);
-  --nav-bg-scrolled: rgba(255, 253, 245, 0.96);
-  --card-shadow: 0 8px 24px rgba(60, 50, 30, 0.08);
-  --badge-bg: rgba(255, 253, 245, 0.9);
-
-  /* Ambient radial glows for light mode */
-  --glow-1: rgba(15, 118, 110, 0.07);
-  --glow-2: rgba(244, 237, 201, 0.95);
-  --glow-3: rgba(250, 204, 21, 0.08);
-  --glow-4: rgba(15, 118, 110, 0.04);
 }
 
 /* Common variables (Layout, Radii, Fonts, Transitions) */
