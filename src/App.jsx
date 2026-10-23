@@ -6,6 +6,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import StarBackground from './components/StarBackground';
 import { useTheme } from './hooks/useTheme';
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
 
   return (
     <>
+      <StarBackground theme={theme} />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main id="main-content">
         <Hero />
