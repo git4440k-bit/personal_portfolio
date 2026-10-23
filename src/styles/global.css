@@ -46,9 +46,9 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(ellipse 650px 450px at 50% 0%, var(--glow-1), transparent 70%),
-    radial-gradient(circle 500px at 15% 45%, var(--glow-2), transparent 60%),
-    radial-gradient(circle 450px at 85% 65%, var(--glow-3), transparent 60%),
+    radial-gradient(ellipse 780px 620px at 74% 20%, var(--glow-1), transparent 67%),
+    radial-gradient(circle 560px at 16% 43%, var(--glow-2), transparent 65%),
+    radial-gradient(circle 440px at 88% 69%, var(--glow-3), transparent 64%),
     radial-gradient(ellipse 700px 400px at 50% 90%, var(--glow-4), transparent 70%);
   transition: background var(--transition-slow);
 }
@@ -107,14 +107,14 @@ a {
 
 /* Section Common Styling */
 .section {
-  padding: 5rem 0;
+  padding: 6.5rem 0;
   position: relative;
   border-top: 1px solid var(--divider);
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: 7rem 0;
+    padding: 9rem 0;
   }
 }
 
@@ -132,29 +132,32 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono-xs);
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
+  color: var(--yellow-text);
+  margin-bottom: 0.9rem;
 }
 
 .section-title {
-  font-size: 1.75rem;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  letter-spacing: -0.04em;
+  line-height: 0.98;
   color: var(--text);
 }
 
 @media (min-width: 768px) {
   .section-title {
-    font-size: 2.25rem;
+    font-size: clamp(2.7rem, 5vw, 4rem);
   }
 }
 
 .section-subtitle {
   margin-top: 0.5rem;
-  font-size: 1rem;
+  font-size: var(--fs-body);
   color: var(--muted);
   max-width: 600px;
 }
@@ -174,10 +177,13 @@ a {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.4rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: var(--radius-md);
+  min-height: 42px;
+  padding: 0.75rem 1.2rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
   cursor: pointer;
   border: 1px solid transparent;
   transition: all var(--transition-normal);
@@ -199,14 +205,14 @@ a {
 
 .btn-outline {
   background-color: transparent;
-  color: var(--text);
+  color: var(--soft);
   border-color: var(--surface-border);
 }
 
 .btn-outline:hover {
-  background-color: var(--surface-hover);
-  border-color: var(--accent);
-  color: var(--accent);
+  background-color: var(--surface);
+  border-color: var(--yellow);
+  color: var(--yellow-text);
   transform: translateY(-2px);
 }
 

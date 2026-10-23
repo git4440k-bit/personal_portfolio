@@ -5,92 +5,63 @@ import '../styles/Hero.css';
 export default function Hero() {
   const heroRef = useReveal({ threshold: 0.1 });
 
-  const handleScrollTo = (e, targetId) => {
-    e.preventDefault();
-    const target = document.querySelector(targetId);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-      history.pushState(null, '', targetId);
-    }
+  const scrollTo = (event, id) => {
+    event.preventDefault();
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+    history.pushState(null, '', id);
   };
 
   return (
     <section id="top" ref={heroRef} className="hero-section" aria-label="Introduction">
       <div className="container hero-container">
-        
-        {/* Availability Badge */}
-        <div className="hero-badge-wrapper reveal-item">
-          <div className="status-badge" role="status">
-            <span className="status-pulse">
-              <span className="status-ping"></span>
-              <span className="status-point"></span>
-            </span>
-            <span className="badge-text">Open to work</span>
-            <span className="badge-separator" aria-hidden="true">•</span>
-            <span className="badge-location">Egypt</span>
-          </div>
+        <div className="status-badge reveal-item" role="status">
+          <span className="status-point" aria-hidden="true" />
+          Open to opportunities <span aria-hidden="true">//</span> Egypt
         </div>
 
-        {/* Name and Title */}
-        <h1 className="hero-name reveal-item">Kareem Mahmoud</h1>
-        
-        <h2 className="hero-title reveal-item">
-          <span className="title-highlight">Front-end</span> Developer
-        </h2>
+        <h1 className="hero-name reveal-item">
+          <span>Kareem</span>
+          <span>Mahmoud</span>
+        </h1>
 
-        {/* Tagline */}
-        <p className="hero-tagline reveal-item">
-          I build clean, responsive web interfaces with React.
+        <p className="hero-title reveal-item">
+          <span className="title-highlight">Front-end</span> Developer
         </p>
 
-        {/* Action Buttons */}
+        <p className="hero-kicker reveal-item">
+          Builds <span aria-hidden="true">//</span> <strong>responsive interfaces</strong>
+        </p>
+
+        <p className="hero-description reveal-item">
+          I build clean, responsive web interfaces with React—thoughtfully designed for real people and real businesses.
+        </p>
+
         <div className="hero-actions reveal-item">
-          <a
-            href="#projects"
-            className="btn btn-primary hero-btn-primary"
-            onClick={(e) => handleScrollTo(e, '#projects')}
-          >
-            <span>View projects</span>
-            <svg
-              className="btn-arrow-icon"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
+          <a href="#contact" className="btn btn-primary hero-btn-primary" onClick={(event) => scrollTo(event, '#contact')}>
+            Get in touch <span aria-hidden="true">↗</span>
           </a>
-          
-          <a
-            href="#contact"
-            className="btn btn-outline hero-btn-outline"
-            onClick={(e) => handleScrollTo(e, '#contact')}
-          >
-            <span>Contact me</span>
+          <a href="#projects" className="btn btn-outline hero-btn-outline" onClick={(event) => scrollTo(event, '#projects')}>
+            View work
           </a>
         </div>
 
-        {/* Subtle quick stats / tech chips */}
-        <div className="hero-highlights reveal-item">
-          <div className="highlight-pill">
-            <span className="pill-dot"></span> React &amp; Modern JS
+        <div className="hero-footer reveal-item">
+          <div className="hero-stats" aria-label="Profile highlights">
+            <div>
+              <span>Base</span>
+              <strong>Egypt</strong>
+            </div>
+            <div>
+              <span>Stack</span>
+              <strong>React / JS</strong>
+            </div>
           </div>
-          <div className="highlight-pill">
-            <span className="pill-dot"></span> Responsive &amp; Mobile-First
-          </div>
-          <div className="highlight-pill">
-            <span className="pill-dot"></span> Performance &amp; Clean Code
-          </div>
+          <a className="hero-social" href="https://github.com/git4440k-bit" target="_blank" rel="noopener noreferrer">
+            GitHub ↗
+          </a>
         </div>
 
-      </div>
+              </div>
     </section>
   );
 }

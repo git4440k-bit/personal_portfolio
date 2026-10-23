@@ -94,7 +94,7 @@ export default function Navbar({ theme, toggleTheme }) {
             className="btn btn-outline nav-cta-btn"
             onClick={(e) => handleLinkClick(e, '#contact')}
           >
-            Hire Me
+            Get in touch
           </a>
         </div>
 
