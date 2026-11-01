@@ -1,0 +1,27 @@
+/* 360° Panoramic Viewport & Perspective Wrapper */
+.star-background-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  perspective: 1100px;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* 360° Panoramic Canvas with 3D Spherical Transform */
+.star-background-canvas {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120vw;
+  height: 120vh;
+  pointer-events: none;
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.12s ease-out;
+}

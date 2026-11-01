@@ -4,13 +4,15 @@ const STORAGE_KEY = 'portfolio-theme-v2';
 
 export function useTheme() {
   const [theme, setTheme] = useState(() => {
-    if (typeof window === 'undefined') return 'light';
+    if (typeof window === 'undefined') return 'dark';
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved === 'light' || saved === 'dark') return saved;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return saved === 'light' || saved === 'dark'
+        ? saved
+        : 'dark';
     } catch {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return 'dark';
     }
   });
 

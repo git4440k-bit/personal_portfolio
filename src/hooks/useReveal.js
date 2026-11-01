@@ -48,8 +48,13 @@ export function useReveal(options = {}) {
     });
 
     elementsToReveal.forEach((el) => observer.observe(el));
+    const visibilityFallback = window.setTimeout(() => {
+      elementsToReveal.forEach((el) => el.classList.add('reveal-visible'));
+      observer.disconnect();
+    }, 900);
 
     return () => {
+      window.clearTimeout(visibilityFallback);
       observer.disconnect();
     };
   }, [threshold, rootMargin, staggerDelay]);

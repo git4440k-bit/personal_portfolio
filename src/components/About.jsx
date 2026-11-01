@@ -19,58 +19,75 @@ export default function About() {
             About Me
           </span>
           <h2 id="about-heading" className="section-title">
-            Background &amp; Focus
+            Engineering Mindset &amp; Craft
           </h2>
+          <p className="section-subtitle">
+            A developer who bridges technical precision with product vision, clean architecture, and real business value.
+          </p>
         </div>
 
-        <div className="about-content-grid">
-          {/* Main Approved Bio (FR-8) */}
-          <div className="about-bio-card reveal-item">
-            <p className="about-lead">
-              I'm a front-end developer and recent graduate with a background in information systems, computer networks, and business subjects like accounting and public economics. I enjoy turning ideas into fast, responsive interfaces with React, and I like building tools that make sense for real users and real businesses.
+        {/* Bento Grid Architecture (SWE Andrew Inspired) */}
+        <div className="about-bento-grid">
+          {/* Main Story Bento Card */}
+          <div className="bento-card bento-card-main reveal-item">
+            <div className="bento-badge">Background / Vision</div>
+            <h3 className="bento-title">Front-end Engineering with Architectural Discipline</h3>
+            <p className="bento-text">
+              I'm a front-end engineer with a strong foundation in information systems, computer networks, and business economics. I focus on turning complex challenges into fast, accessible, and responsive interfaces built with React and modern web standards.
+            </p>
+            <p className="bento-text">
+              I believe great software doesn't just look sleek—it functions reliably, loads instantaneously, and scales predictably under production workloads.
             </p>
 
-            <div className="about-focus-points">
-              <div className="focus-point-item reveal-item">
-                <div className="point-icon-wrapper" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="point-title">Front-end Engineering</h3>
-                  <p className="point-desc">Clean, modular React components, responsive mobile-first layouts, and modern CSS.</p>
-                </div>
-              </div>
-
-              <div className="focus-point-item reveal-item">
-                <div className="point-icon-wrapper" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                    <line x1="8" y1="21" x2="16" y2="21"></line>
-                    <line x1="12" y1="17" x2="12" y2="21"></line>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="point-title">Systems &amp; Networks</h3>
-                  <p className="point-desc">Foundational knowledge in computing systems, network protocols, and web architecture.</p>
-                </div>
-              </div>
-
-              <div className="focus-point-item reveal-item">
-                <div className="point-icon-wrapper" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="12" y1="1" x2="12" y2="23"></line>
-                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="point-title">Business &amp; Usability</h3>
-                  <p className="point-desc">Understanding of accounting and business economics to build solutions that drive actual value.</p>
-                </div>
-              </div>
+            <div className="bento-highlights">
+              <div className="highlight-pill">Core Web Vitals</div>
+              <div className="highlight-pill">Mobile-first</div>
+              <div className="highlight-pill">Reusable Architecture</div>
             </div>
+          </div>
+
+          {/* Bento Card 2: Principles */}
+          <div className="bento-card bento-card-side reveal-item">
+            <div className="bento-badge">Philosophy</div>
+            <h4 className="bento-sub-title">How I Work</h4>
+            <ul className="bento-list">
+              <li>
+                <strong>Precision over complexity:</strong> Writing clean, maintainable, and self-documenting code.
+              </li>
+              <li>
+                <strong>Design systems:</strong> Building design tokens and modular UI libraries for consistent UX.
+              </li>
+              <li>
+                <strong>Continuous learning:</strong> Staying ahead with modern JavaScript, state management, and web APIs.
+              </li>
+            </ul>
+          </div>
+
+          {/* Bento Card 3: Systems & Networks */}
+          <div className="bento-card reveal-item">
+            <span className="bento-card-index" aria-hidden="true">01</span>
+            <h4 className="bento-card-heading">Systems &amp; Network Roots</h4>
+            <p className="bento-card-desc">
+              Grounded in network protocols, server-client handshakes, and distributed computing models to optimize web communication.
+            </p>
+          </div>
+
+          {/* Bento Card 4: Business & Usability */}
+          <div className="bento-card reveal-item">
+            <span className="bento-card-index" aria-hidden="true">02</span>
+            <h4 className="bento-card-heading">Business &amp; Product Driven</h4>
+            <p className="bento-card-desc">
+              Educated in public economics and accounting, ensuring every technical choice maps directly to user engagement and business impact.
+            </p>
+          </div>
+
+          {/* Bento Card 5: Modern Tooling */}
+          <div className="bento-card reveal-item">
+            <span className="bento-card-index" aria-hidden="true">03</span>
+            <h4 className="bento-card-heading">Modern Tooling</h4>
+            <p className="bento-card-desc">
+              Leveraging Vite, Git workflow, ESLint/Oxlint, responsive CSS modules, and component-driven development.
+            </p>
           </div>
         </div>
       </div>

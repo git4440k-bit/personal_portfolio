@@ -1,0 +1,6 @@
+.stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+.stack-col { border-top: 1px solid var(--divider); padding-top: 1.2rem; }
+.stack-title { font-family: var(--font-mono); font-size: var(--fs-mono-xs); text-transform: uppercase; letter-spacing: .1em; color: var(--yellow-text); margin-bottom: 1rem; }
+.stack-list { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; }
+.stack-tag { display: inline-flex; align-items: center; gap: .45rem; padding: .4rem .8rem; border: 1px solid var(--surface-border); border-radius: var(--radius-full); background: var(--surface); color: var(--text-secondary); font-family: var(--font-mono); font-size: var(--fs-mono-xs); font-weight: 600; transition: all var(--transition-fast); }
+.stack-tag:hover { border-color: var(--yellow); color: var(--yellow-text); transform: translateY(-1px); }

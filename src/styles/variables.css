@@ -1,74 +1,88 @@
-/* Design tokens — dark is the primary visual direction. */
+/* Design tokens — SWE Andrew Inspired Modern Dark/Light Theme */
 :root,
 :root[data-theme="light"] {
-  --bg: #ECECEC;                   /* Page background */
-  --surface: #ffffff;              /* Cards, navbar, containers */
-  --surface-elevated: #ffffff;     /* Pure elevated surface */
-  --surface-hover: #f1f3f5;        /* Subtle clean hover */
-  --surface-border: rgba(27, 28, 34, 0.08);
-  --surface-border-hover: rgba(15, 118, 110, 0.35);
-  --divider: rgba(27, 28, 34, 0.06);
+  --bg: #f8fafc;                   /* Clean pearl page background for 360° panoramic canvas */
+  --surface: rgba(255, 255, 255, 0.75);
+  --surface-elevated: #ffffff;
+  --surface-hover: rgba(241, 245, 249, 0.9);
+  --surface-border: rgba(15, 23, 42, 0.08);
+  --surface-border-hover: rgba(15, 118, 110, 0.4);
+  --divider: rgba(15, 23, 42, 0.06);
 
-  --glow: #eef2f6;                 /* Soft tint for ambient glow */
-  --text: #1b1c22;                 /* Deep charcoal text (high contrast) */
-  --text-secondary: #3b3f4d;       /* Crisp secondary text */
-  --muted: #5c5f6a;                /* Readable muted text (≥ 4.5:1) */
-  --muted-dark: #838796;           /* Subtle metadata */
+  --glow: #eef2f6;
+  --text: #0f172a;                 /* Deep slate text */
+  --text-secondary: #334155;       /* Crisp secondary text */
+  --muted: #64748b;                /* Readable muted text (≥ 4.5:1) */
+  --muted-dark: #94a3b8;
+  --soft: #334155;
+  --dim: #64748b;
+  --nav-link: #475569;
+  --nav-link-hover: #0f172a;
+  --nav-link-active: #0f766e;
 
-  --accent: #0f766e;               /* Deeper teal to ensure high contrast on light */
+  --accent: #0f766e;               /* Teal accent */
   --accent-hover: #0d655e;
   --on-accent: #ffffff;
-  --accent-glow: rgba(15, 118, 110, 0.2);
+  --accent-glow: rgba(15, 118, 110, 0.22);
   --accent-subtle: rgba(15, 118, 110, 0.08);
-  --yellow: #facc15;
-  --yellow-text: #a16207;
+  --yellow: #f59e0b;
+  --yellow-text: #b45309;
   --yellow-hover: #d97706;
-  --yellow-glow: rgba(161, 98, 7, 0.2);
-  --yellow-subtle: rgba(250, 204, 21, 0.22);
-  --nav-bg: rgba(255, 253, 245, 0.82);
-  --nav-bg-scrolled: rgba(255, 253, 245, 0.96);
-  --card-shadow: 0 12px 30px rgba(69, 55, 16, 0.07);
-  --badge-bg: rgba(255, 255, 255, 0.9);
-  --glow-1: rgba(15, 118, 110, 0.06);
-  --glow-2: rgba(244, 237, 201, 0.75);
-  --glow-3: rgba(250, 204, 21, 0.05);
-  --glow-4: rgba(15, 118, 110, 0.03);
+  --yellow-glow: rgba(245, 158, 11, 0.2);
+  --yellow-subtle: rgba(245, 158, 11, 0.12);
+
+  /* Ultra-glassmorphic Navbar Tokens */
+  --nav-bg: rgba(255, 255, 255, 0.55);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.42);
+  --card-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06);
+  --badge-bg: rgba(255, 255, 255, 0.85);
+
+  /* 360° Panoramic Ambient Atmospheric Lighting */
+  --glow-1: rgba(56, 189, 248, 0.12);
+  --glow-2: rgba(254, 243, 199, 0.7);
+  --glow-3: rgba(192, 132, 252, 0.09);
+  --glow-4: rgba(15, 118, 110, 0.06);
 }
 
 :root[data-theme="dark"] {
-  --bg: #08080c;
-  --surface: #0b0d11;
-  --surface-elevated: #11141a;
-  --surface-hover: #161b22;
-  --surface-border: #1b1d23;
-  --surface-border-hover: rgba(93, 234, 213, 0.48);
-  --divider: rgba(255, 255, 255, 0.05);
-  --glow: #0f1818;
-  --text: #edeff4;
-  --text-secondary: #dbdde1;
-  --muted: #8b92a1;
-  --muted-dark: #4b4e56;
-  --soft: #dbdde1;
-  --nav-link: #858994;
-  --dim: #4b4e56;
+  --bg: #07090e;
+  --surface: rgba(15, 23, 42, 0.65);
+  --surface-elevated: #11141c;
+  --surface-hover: rgba(30, 41, 59, 0.8);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --surface-border-hover: rgba(93, 234, 213, 0.5);
+  --divider: rgba(255, 255, 255, 0.06);
+  --glow: #0b1518;
+  --text: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --muted: #94a3b8;
+  --muted-dark: #64748b;
+  --soft: #cbd5e1;
+  --nav-link: #94a3b8;
+  --nav-link-hover: #ffffff;
+  --nav-link-active: #5dead5;
+  --dim: #64748b;
   --accent: #5dead5;
   --accent-hover: #44cfb8;
-  --on-accent: #08080c;
-  --accent-glow: rgba(93, 234, 213, 0.18);
-  --accent-subtle: rgba(93, 234, 213, 0.08);
+  --on-accent: #07090e;
+  --accent-glow: rgba(93, 234, 213, 0.25);
+  --accent-subtle: rgba(93, 234, 213, 0.1);
   --yellow: #facc15;
   --yellow-text: #facc15;
   --yellow-hover: #ebd010;
-  --yellow-glow: rgba(250, 204, 21, 0.18);
-  --yellow-subtle: rgba(250, 204, 21, 0.08);
-  --nav-bg: rgba(8, 8, 12, 0.75);
-  --nav-bg-scrolled: rgba(11, 13, 17, 0.94);
-  --card-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-  --badge-bg: rgba(11, 13, 17, 0.85);
-  --glow-1: rgba(93, 234, 213, 0.09);
-  --glow-2: rgba(15, 24, 24, 0.85);
-  --glow-3: rgba(250, 204, 21, 0.035);
-  --glow-4: rgba(93, 234, 213, 0.05);
+  --yellow-glow: rgba(250, 204, 21, 0.2);
+  --yellow-subtle: rgba(250, 204, 21, 0.1);
+
+  /* Ultra-glassmorphic Navbar Tokens */
+  --nav-bg: rgba(11, 13, 19, 0.55);
+  --nav-bg-scrolled: rgba(11, 13, 19, 0.42);
+  --card-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+  --badge-bg: rgba(15, 23, 42, 0.85);
+
+  --glow-1: rgba(93, 234, 213, 0.12);
+  --glow-2: rgba(15, 24, 38, 0.9);
+  --glow-3: rgba(250, 204, 21, 0.04);
+  --glow-4: rgba(139, 92, 246, 0.08);
 }
 
 :root {
@@ -77,14 +91,15 @@
   --font-sans: var(--font-body);
   --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
   --container-max: 1100px;
-  --nav-height: 64px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --nav-height: 58px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
-  --fs-hero: clamp(3.5rem, 9.33vw, 7rem);
-  --fs-subtitle: clamp(1.5rem, 3vw, 2rem);
-  --fs-body: clamp(1rem, 1.2vw, 1.125rem);
+  --fs-hero: clamp(3.2rem, 7.5vw, 5.8rem);
+  --fs-subtitle: clamp(1.25rem, 2.5vw, 1.75rem);
+  --fs-body: clamp(0.95rem, 1.1vw, 1.05rem);
   --fs-mono-lg: 0.875rem;
   --fs-mono: 0.8125rem;
   --fs-mono-sm: 0.75rem;

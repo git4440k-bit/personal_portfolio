@@ -5,25 +5,25 @@ import '../styles/Navbar.css';
 export default function Navbar({ theme, toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 25);
 
-      // Active section detection
-      const sections = ['about', 'skills', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 120;
+      const sections = ['top', 'about', 'experience', 'projects', 'contact'];
+      const scrollPosition = window.scrollY + 140;
 
       for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
+        const id = sections[i];
+        const el = document.getElementById(id);
         if (el && el.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
+          setActiveSection(id === 'top' ? 'home' : id);
           return;
         }
       }
-      if (window.scrollY < 200) {
-        setActiveSection('');
+      if (window.scrollY < 120) {
+        setActiveSection('home');
       }
     };
 
@@ -32,7 +32,7 @@ export default function Navbar({ theme, toggleTheme }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on Esc key
+  // Close mobile menu on Escape
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && isOpen) {
@@ -45,15 +45,16 @@ export default function Navbar({ theme, toggleTheme }) {
 
   const navLinks = [
     { name: 'About', href: '#about', id: 'about' },
-    { name: 'Skills', href: '#skills', id: 'skills' },
-    { name: 'Projects', href: '#projects', id: 'projects' },
+    { name: 'Stack', href: '#skills', id: 'skills' },
+    { name: 'Experience', href: '#experience', id: 'experience' },
+    { name: 'Work', href: '#projects', id: 'projects' },
     { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
   const handleLinkClick = (e, href) => {
     e.preventDefault();
     setIsOpen(false);
-    const target = document.querySelector(href);
+    const target = href === '#top' ? document.getElementById('top') : document.querySelector(href);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
       history.pushState(null, '', href);
@@ -69,11 +70,11 @@ export default function Navbar({ theme, toggleTheme }) {
           onClick={(e) => handleLinkClick(e, '#top')}
           aria-label="Kareem Mahmoud - Home"
         >
-          <span className="brand-dot"></span>
+          <span className="brand-dot" aria-hidden="true"></span>
           <span className="brand-name">Kareem Mahmoud</span>
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Links Dock */}
         <div className="navbar-links-desktop">
           {navLinks.map((link) => (
             <a
@@ -91,10 +92,10 @@ export default function Navbar({ theme, toggleTheme }) {
 
           <a
             href="#contact"
-            className="btn btn-outline nav-cta-btn"
+            className="nav-cta-btn"
             onClick={(e) => handleLinkClick(e, '#contact')}
           >
-            Get in touch
+            Connect
           </a>
         </div>
 
@@ -138,7 +139,7 @@ export default function Navbar({ theme, toggleTheme }) {
               className="btn btn-primary mobile-cta-btn"
               onClick={(e) => handleLinkClick(e, '#contact')}
             >
-              Contact Me
+              Get in Touch
             </a>
           </div>
         </div>

@@ -1,0 +1,111 @@
+/* Design tokens — SWE Andrew Inspired Modern Dark/Light Theme */
+:root,
+:root[data-theme="light"] {
+  --bg: #f8fafc;                   /* Clean pearl page background for 360° panoramic canvas */
+  --surface: rgba(255, 255, 255, 0.75);
+  --surface-elevated: #ffffff;
+  --surface-hover: rgba(241, 245, 249, 0.9);
+  --surface-border: rgba(15, 23, 42, 0.08);
+  --surface-border-hover: rgba(15, 118, 110, 0.4);
+  --divider: rgba(15, 23, 42, 0.06);
+
+  --glow: #eef2f6;
+  --text: #0f172a;                 /* Deep slate text */
+  --text-secondary: #334155;       /* Crisp secondary text */
+  --muted: #64748b;                /* Readable muted text (≥ 4.5:1) */
+  --muted-dark: #94a3b8;
+  --soft: #334155;
+  --dim: #64748b;
+  --nav-link: #475569;
+  --nav-link-hover: #0f172a;
+  --nav-link-active: #0f766e;
+
+  --accent: #0f766e;               /* Teal accent */
+  --accent-hover: #0d655e;
+  --on-accent: #ffffff;
+  --accent-glow: rgba(15, 118, 110, 0.22);
+  --accent-subtle: rgba(15, 118, 110, 0.08);
+  --yellow: #f59e0b;
+  --yellow-text: #b45309;
+  --yellow-hover: #d97706;
+  --yellow-glow: rgba(245, 158, 11, 0.2);
+  --yellow-subtle: rgba(245, 158, 11, 0.12);
+
+  /* Ultra-glassmorphic Navbar Tokens */
+  --nav-bg: rgba(255, 255, 255, 0.55);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.42);
+  --card-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06);
+  --badge-bg: rgba(255, 255, 255, 0.85);
+
+  /* 360° Panoramic Ambient Atmospheric Lighting */
+  --glow-1: rgba(56, 189, 248, 0.12);
+  --glow-2: rgba(254, 243, 199, 0.7);
+  --glow-3: rgba(192, 132, 252, 0.09);
+  --glow-4: rgba(15, 118, 110, 0.06);
+}
+
+:root[data-theme="dark"] {
+  --bg: #07090e;
+  --surface: rgba(15, 23, 42, 0.65);
+  --surface-elevated: #11141c;
+  --surface-hover: rgba(30, 41, 59, 0.8);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --surface-border-hover: rgba(93, 234, 213, 0.5);
+  --divider: rgba(255, 255, 255, 0.06);
+  --glow: #0b1518;
+  --text: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --muted: #94a3b8;
+  --muted-dark: #64748b;
+  --soft: #cbd5e1;
+  --nav-link: #94a3b8;
+  --nav-link-hover: #ffffff;
+  --nav-link-active: #5dead5;
+  --dim: #64748b;
+  --accent: #5dead5;
+  --accent-hover: #44cfb8;
+  --on-accent: #07090e;
+  --accent-glow: rgba(93, 234, 213, 0.25);
+  --accent-subtle: rgba(93, 234, 213, 0.1);
+  --yellow: #facc15;
+  --yellow-text: #facc15;
+  --yellow-hover: #ebd010;
+  --yellow-glow: rgba(250, 204, 21, 0.2);
+  --yellow-subtle: rgba(250, 204, 21, 0.1);
+
+  /* Ultra-glassmorphic Navbar Tokens */
+  --nav-bg: rgba(11, 13, 19, 0.55);
+  --nav-bg-scrolled: rgba(11, 13, 19, 0.42);
+  --card-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+  --badge-bg: rgba(15, 23, 42, 0.85);
+
+  --glow-1: rgba(93, 234, 213, 0.12);
+  --glow-2: rgba(15, 24, 38, 0.9);
+  --glow-3: rgba(250, 204, 21, 0.04);
+  --glow-4: rgba(139, 92, 246, 0.08);
+}
+
+:root {
+  --font-display: 'Inter Tight', Inter, system-ui, sans-serif;
+  --font-body: Inter, system-ui, sans-serif;
+  --font-sans: var(--font-body);
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --container-max: 1100px;
+  --nav-height: 58px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --fs-hero: clamp(3.2rem, 7.5vw, 5.8rem);
+  --fs-subtitle: clamp(1.25rem, 2.5vw, 1.75rem);
+  --fs-body: clamp(0.95rem, 1.1vw, 1.05rem);
+  --fs-mono-lg: 0.875rem;
+  --fs-mono: 0.8125rem;
+  --fs-mono-sm: 0.75rem;
+  --fs-mono-xs: 0.6875rem;
+  --fs-mono-2xs: 0.625rem;
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
